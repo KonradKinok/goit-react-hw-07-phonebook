@@ -1,10 +1,9 @@
-import { createSlice, nanoid, PayloadAction, Action } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction, Action } from "@reduxjs/toolkit";
 import {
   fetchContacts,
   addContact,
   deleteContact,
 } from "./operations";
-
 
 interface Contact {
   id: string;
@@ -18,6 +17,7 @@ interface ContactsState {
   isLoading: boolean;
   error: string | null;
 }
+
 const handlePending = (state: ContactsState) => {
   state.isLoading = true;
   state.error = null;
@@ -27,6 +27,7 @@ const handleRejected = (state: ContactsState, action: PayloadAction<string>) => 
   state.isLoading = false;
   state.error = action.payload;
 };
+
 const isPendingAction = (action: Action): boolean => {
   return action.type.endsWith("/pending");
 };
@@ -34,7 +35,6 @@ const isPendingAction = (action: Action): boolean => {
 const isRejectAction = (action: Action): boolean => {
   return action.type.endsWith("/rejected");
 };
-
 
 const initialState: ContactsState = {
   items: [],
@@ -69,7 +69,7 @@ const contactSlice = createSlice({
       })
       .addMatcher(isPendingAction, handlePending)
       .addMatcher(isRejectAction, handleRejected)
-      .addDefaultCase((state, action) => {
+      .addDefaultCase((state) => {
         state.error = "someone use old function, fix it!";
       });
   },

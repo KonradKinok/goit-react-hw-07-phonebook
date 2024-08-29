@@ -5,7 +5,9 @@ import {setStatusFilter} from "../redux/filtersSlice"
 import scss from "./Filter.module.scss"
 
 const Filter: React.FC = () => {
+  
   const dispatch = useDispatch();
+  
   const handleFilterChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const filter = event.target.value;
     dispatch(setStatusFilter(filter))

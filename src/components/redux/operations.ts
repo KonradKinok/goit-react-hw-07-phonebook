@@ -20,17 +20,11 @@ interface AddContactPayload {
 
 export const fetchContacts = createAsyncThunk<Contact[], void, { rejectValue: string }>(
   "contacts/fetchAll",
-  // Wykorzystamy symbol podkreślenia jako nazwę pierwszego parametru,
-  // ponieważ w tej operacji nie jest nam potrzebny
   async (_, thunkAPI) => {
     try {
       const response = await apiClient.get("/contacts");
-      // Przy pomyślnym zapytaniu zwracamy promise z danymi
-
       return response.data;
     } catch (e: any) {
-      // Przy błędzie zapytania zwracamy promise,
-      // który zostanie odrzucony z tekstem błędu
       return thunkAPI.rejectWithValue(e.message);
     }
   },

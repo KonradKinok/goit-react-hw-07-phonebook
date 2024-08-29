@@ -1,11 +1,10 @@
-import React,{ ChangeEvent, FormEvent } from "react";
+import React,{ FormEvent } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { nanoid } from 'nanoid'
-import scss from "./ContactForm.module.scss"
-import { useDispatch } from "react-redux";
 import { addContact } from "../redux/operations";
-import { useSelector } from "react-redux";
 import { selectContacts } from "../redux/selectors";
 import { AppDispatch } from "../redux/store";
+import scss from "./ContactForm.module.scss"
 
 const ContactForm: React.FC = () => {
 
@@ -32,7 +31,7 @@ const ContactForm: React.FC = () => {
             window.alert(`${newName} or ${newPhone} is already in contacts`);
             return;
         }
-        console.log("ContactForm -> dispatch(addContact name phone", newName, newPhone);
+        
         dispatch(addContact({createdAt:new Date().toISOString(), name: newName, phone: newPhone}));
         form.reset();
     };
@@ -50,7 +49,6 @@ const ContactForm: React.FC = () => {
                     pattern="^[a-zA-Z]+((['\u0020-\u002D][a-zA-Z])?[a-zA-Z]*)*$"
                     title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                     required
-                    
                 />
                 <label htmlFor={numId}>Phone number</label>
                 <input
@@ -62,7 +60,6 @@ const ContactForm: React.FC = () => {
                     pattern="\d\d\d-\d\d\d-\d\d\d"
                     title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with + Example: 567-216-456"
                     required
-                    
                 />
                 <button type="submit">Add contact</button>
             </form>

@@ -1,7 +1,8 @@
 import React from "react";
+import * as globalFunctions from "../../globalFunctions/functions";
 import { useDispatch } from "react-redux";
 import { deleteContact } from "../redux/operations";
-import * as globalFunctions from "../../globalFunctions/functions";
+import { AppDispatch } from "../redux/store";
 import scss from "./SeparateContact.module.scss";
 
 interface Contact {
@@ -16,10 +17,11 @@ interface SeparateContactProps {
 }
 
 const SeparateContact: React.FC<SeparateContactProps> =  ({ contact })=> {
-  const dispatch = useDispatch();
+
+  const dispatch = useDispatch<AppDispatch>();
   const handleDelete = () => dispatch(deleteContact(contact.id));
-  // const handleDelete = () => console.log("uruchom delete");
-    return (
+
+  return (
       <li className={scss.containerContact} key={contact.id} >
         <div className={scss.containerNameDate}>
           <div>
