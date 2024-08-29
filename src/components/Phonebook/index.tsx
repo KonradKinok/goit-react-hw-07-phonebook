@@ -25,7 +25,7 @@ console.log(error)
             <ContactForm />
             <h2>Contacts</h2>
             <Filter />
-            {error?(<div>Error...</div>):
+            {error?(<div>{error}</div>):
             isLoading ?(<div>Loading...</div>)
             :<ContactList />}
         </div>
