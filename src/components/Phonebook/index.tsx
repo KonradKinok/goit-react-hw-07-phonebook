@@ -18,7 +18,7 @@ export function Contacts() {
     // const { isLoading, error } = useSelector((state: RootState) => state.contacts);
     const isLoading = useSelector(selectIsLoading);
     const error = useSelector(selectError);
-
+console.log(error)
     return (
         <div className={scss.phonebookContainer}>
             <h1>Phonebook</h1>

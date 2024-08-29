@@ -69,9 +69,9 @@ const contactSlice = createSlice({
       })
       .addMatcher(isPendingAction, handlePending)
       .addMatcher(isRejectAction, handleRejected)
-      .addDefaultCase((state) => {
-        state.error = "someone use old function, fix it!";
-      });
+      // .addDefaultCase((state) => {
+      //   state.error = "someone use old function, fix it!";
+      // });
   },
 });
 
