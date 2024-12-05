@@ -6,7 +6,7 @@ https://github.com/KonradKinok/goit-react-hw-07-phonebook
 Link do Vercel:
 https://goit-react-hw-07-phonebook-ashy.vercel.app/
 
-# React + Vite
+## React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
