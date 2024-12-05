@@ -1,10 +1,10 @@
 # goit-react-hw-07-phonebook
 
 Link do repozytorium:
-https://github.com/KonradKinok/goit-react-hw-07-phonebook
+<https://github.com/KonradKinok/goit-react-hw-07-phonebook>
 
 Link do Vercel:
-https://goit-react-hw-07-phonebook-ashy.vercel.app/
+<https://goit-react-hw-07-phonebook-ashy.vercel.app/>
 
 ## React + Vite
 
